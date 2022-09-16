@@ -18,3 +18,7 @@ video is now going over RAPIDAPI i will watch the video fully before building ou
 
 ## 4:00 pm est 
 searching through API documentation 
+https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/
+
+## 5:00 pm est 
+getting started on thinking about state tree, component hierarchy, and building out diagram 
