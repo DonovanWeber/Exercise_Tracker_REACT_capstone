@@ -15,3 +15,6 @@ Lunch break
 
 ## 3:30 pm est 
 video is now going over RAPIDAPI i will watch the video fully before building out the components i need 
+
+## 4:00 pm est 
+searching through API documentation 
