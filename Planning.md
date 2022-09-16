@@ -9,3 +9,6 @@ The video is long and talks about file structure and new React property Hooks
 
 ## 1:00 om est
 Deeper dive into Hooks from React docs 
+
+## 2:00 pm est
+Lunch break
