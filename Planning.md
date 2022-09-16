@@ -22,3 +22,6 @@ https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb/
 
 ## 5:00 pm est 
 getting started on thinking about state tree, component hierarchy, and building out diagram 
+
+## 6:00 pm est 
+Building out basic component structure and finding working dependencies
