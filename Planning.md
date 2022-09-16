@@ -25,3 +25,6 @@ getting started on thinking about state tree, component hierarchy, and building 
 
 ## 6:00 pm est 
 Building out basic component structure and finding working dependencies
+
+## 7:00 pm est 
+Continuing API research and testing 
