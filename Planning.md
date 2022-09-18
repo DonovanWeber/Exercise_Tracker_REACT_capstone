@@ -1,3 +1,30 @@
+### Proposal 
+## Donovan Weber
+
+## Donovan's Exercise/Workout Tracker
+
+## GOAL
+To help users keep track of workouts and other metrics within their fitness journey and provide solutions and other examples when a user feels lost on what to do.
+
+## List of minimum features
+* Save and track user inputted data and provide short timeline of goals 
+* List different workouts a user can complete and section based on body parts
+* GPS Tracking for miles and possibly track calories or a system where one can provide a base goal of how much a user may want to lose and provide exercises based off calories in users average diet (for a week)
+
+## Tools, Frameworks, Libraries 
+* JavaScript
+* React
+* Redux
+* React-Redux
+* ExerciseDB API
+* Azure (stretch goal to host)
+
+## Goals with time to spare 
+* System to figure out a users body type and provide workouts based of different body types (endo, ectomorphs)
+* Stylization slick design with interactive exercises and slick tracking ui
+* Work on hosting it as a phone app and/or connecting to a bluetooth device that can track location 
+
+
 ## Planning 
 
 ## 11:00am est
