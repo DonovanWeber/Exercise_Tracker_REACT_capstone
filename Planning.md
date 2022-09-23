@@ -69,3 +69,6 @@ Research on google api and ways to store user data aka Firestore docs
 ## 3:30
 Research on how to implement a calorie tracker
 https://www.youtube.com/watch?v=TNJ6KNSx_jo
+
+## 5:30 
+Research on Data to Graphs API's and how they would display
