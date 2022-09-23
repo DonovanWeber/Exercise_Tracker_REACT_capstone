@@ -1,5 +1,5 @@
 # WorkoutWeaver
-
+//FINISH README FOR RESUBS AND PLANNING MD 
 #### WorkoutWeaver is an exercise tracking app that provides convenient workouts for specific areas of training.
 
 #### By Donovan Weber 

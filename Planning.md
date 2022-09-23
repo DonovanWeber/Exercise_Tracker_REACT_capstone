@@ -1,6 +1,6 @@
 ### Proposal 
 ## Donovan Weber
-
+//FINISH README FOR RESUBS AND PLANNING MD 
 ## Donovan's Exercise/Workout Tracker
 
 ## GOAL
