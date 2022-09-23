@@ -60,3 +60,8 @@ Building out basic component structure and finding working dependencies
 
 ## 7:00 pm est 
 Continuing API research and testing 
+
+
+## Sept 23
+## 2:30 
+Research on google api and ways to store user data
