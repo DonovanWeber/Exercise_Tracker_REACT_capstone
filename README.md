@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# WorkoutWeaver
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### WorkoutWeaver is an exercise tracking app that provides convenient workouts for specific areas of training.
+
+#### By Donovan Weber 
+
+## Technologies Used
+
+* JavaScript
+* React
+* Firebase Firestore
+* ExerciseDB API
+* 
+
+## Description
+Pierre's Bakery is ran through the terminal where you can type your answers for how many loaves of bread or pastries you would like. It will then give you a price and discount for every third loaf of bread or pastry you order.
+
+## Setup/Installation Requirements
+
+* Navigate to `https://github.com/DonovanWeber/Pierres-Bakery`
+* Click on the green "Code" button and copy the repository URL or click on the copy button
+* Open the terminal on your desktop
+* Once in the terminal, use it to navigate to your desktop folder
+* Once inside your desktop folder, use the command `git clone https://github.com/DonovanWeber/Pierres-Bakery`
+* After cloning the project, navigate into it using the command `cd Pierres_Bakery.Solution`
+* Then run `cd Pierres_Bakery.Tests` and run `dotnet restore` inside of the testing directory to build out the objects folder
+* Then  navigate to the project directory by `cd Pierres_Bakery` and run `dotnet build`
+* After you build the application go back into the terminal and run `dotnet run` to start the application inside of the terminal
+
+
 
 ## Available Scripts
 
@@ -39,35 +66,11 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Known Bugs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+No known bugs contact me at [donovanweber03@gmail.com](mailto:donovanweber03@gmail.com) if any bugs are found.
 
 
-//
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

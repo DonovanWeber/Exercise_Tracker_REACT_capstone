@@ -11,20 +11,25 @@ To help users keep track of workouts and other metrics within their fitness jour
 * List different workouts a user can complete and section based on body parts
 * GPS Tracking for miles and possibly track calories or a system where one can provide a base goal of how much a user may want to lose and provide exercises based off calories in users average diet (for a week)
 
-## Tools, Frameworks, Libraries 
+## Tools, Frameworks, Libraries (update Tech (libraries, dbs ))
 * JavaScript
 * React
 * Redux
 * React-Redux
 * ExerciseDB API
+* Firestore (NoSql)
 * Azure (stretch goal to host)
 
 ## Goals with time to spare 
 * System to figure out a users body type and provide workouts based of different body types (endo, ectomorphs)
 * Stylization slick design with interactive exercises and slick tracking ui
 * Work on hosting it as a phone app and/or connecting to a bluetooth device that can track location 
-
-
+* GPS Tracking 
+## Tech for stretch 
+* React Native
+* Google Location API 
+* Azure 
+* Github Pages 
 ## Planning 
 
 ## 11:00am est
