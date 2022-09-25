@@ -1,5 +1,5 @@
 # WorkoutWeaver
-//FINISH README FOR RESUBS AND PLANNING MD 
+
 #### WorkoutWeaver is an exercise tracking app that provides convenient workouts for specific areas of training.
 
 #### By Donovan Weber 
@@ -10,22 +10,23 @@
 * React
 * Firebase Firestore
 * ExerciseDB API
-* 
+* Material UI
+* Redux 
 
 ## Description
-Pierre's Bakery is ran through the terminal where you can type your answers for how many loaves of bread or pastries you would like. It will then give you a price and discount for every third loaf of bread or pastry you order.
+WorkoutWeaver is a web application that helps users figure out what workouts they want based off equipment, body parts, and isolated muscles groups. It can also provide goals and different charts to show progress through strength training. 
 
 ## Setup/Installation Requirements
-
-* Navigate to `https://github.com/DonovanWeber/Pierres-Bakery`
+* This project assumes you have Node Package Manager installed on your current device
+* Navigate to `https://github.com/DonovanWeber/Exercise_Tracker_REACT_capstone`
 * Click on the green "Code" button and copy the repository URL or click on the copy button
 * Open the terminal on your desktop
 * Once in the terminal, use it to navigate to your desktop folder
-* Once inside your desktop folder, use the command `git clone https://github.com/DonovanWeber/Pierres-Bakery`
-* After cloning the project, navigate into it using the command `cd Pierres_Bakery.Solution`
-* Then run `cd Pierres_Bakery.Tests` and run `dotnet restore` inside of the testing directory to build out the objects folder
-* Then  navigate to the project directory by `cd Pierres_Bakery` and run `dotnet build`
-* After you build the application go back into the terminal and run `dotnet run` to start the application inside of the terminal
+* Once inside your desktop folder, use the command `git clone https://github.com/DonovanWeber/Exercise_Tracker_REACT_capstone`
+* After cloning the project, navigate into it using the command `cd exercise-tracker`
+* Then run `npm install` to download all necessary dependencies
+* Then  navigate to the project directory and run `npm run build` to make sure there are no issues with the dependencies
+* After you build the application go back into the terminal and run `npm start` to start the application inside of the terminal
 
 
 
