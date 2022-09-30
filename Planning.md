@@ -81,3 +81,9 @@ youtube search and download api and chart.js research
 
 ## 1:00
 quick bfast break 
+
+## 5:00
+research on deploying on netify.com
+
+
+## 
