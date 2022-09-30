@@ -86,4 +86,8 @@ quick bfast break
 research on deploying on netify.com
 
 
-## 
+## 6:00
+chart.js implementation research and authorization research for admins in my application
+
+
+
