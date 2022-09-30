@@ -1,6 +1,6 @@
 ### Proposal 
 ## Donovan Weber
-//FINISH README FOR RESUBS AND PLANNING MD 
+
 ## Donovan's Exercise/Workout Tracker
 
 ## GOAL
@@ -73,3 +73,11 @@ https://www.youtube.com/watch?v=TNJ6KNSx_jo
 
 ## 5:30 
 Research on Data to Graphs API's and how they would display
+
+## Sept 30 
+
+## 12:00
+youtube search and download api and chart.js research
+
+## 1:00
+quick bfast break 
