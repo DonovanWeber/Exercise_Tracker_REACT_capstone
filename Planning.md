@@ -18,7 +18,7 @@ To help users keep track of workouts and other metrics within their fitness jour
 * React-Redux
 * ExerciseDB API
 * Firestore (NoSql)
-* 
+* YouTube Search and Download API
 
 ## Goals with time to spare 
 * System to figure out a users body type and provide workouts based of different body types (endo, ectomorphs)
