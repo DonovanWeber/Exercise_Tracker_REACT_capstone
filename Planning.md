@@ -89,5 +89,7 @@ research on deploying on netify.com
 ## 6:00
 chart.js implementation research and authorization research for admins in my application
 
+## 7:00 
+Looking into react native and other mobile programming languages 
 
 
