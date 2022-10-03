@@ -6,26 +6,29 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
-import SignIn from './components/SignIn';
-
-
-
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <React.Fragment>
-      <Box width="400px"  sx={{width: { x1: '1448px'}}} m="auto">
-        <Navbar /> 
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/exercise/:id" element={<ExerciseDetail />} />
-          <Route path="/sign-in" element={<SignIn />} />
-        </Routes>
-        <Footer />
-      </Box>
+      <AuthProvider>
+        <Box width="400px"  sx={{width: { x1: '1448px'}}} m="auto">
+          <Navbar /> 
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/exercise/:id" element={<ExerciseDetail />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Footer />
+        </Box>
+      </AuthProvider>
     </React.Fragment>
   );
 }

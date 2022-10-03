@@ -7,13 +7,13 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 function Login(){
 
   const emailRef = useRef()
-  const password = useRef()
-  const {login} = useAuth();
-  const [error, setError] = useState(""):
+  const passwordRef = useRef()
+  const { login } = useAuth();
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  function handleLogin(e){
+  async function handleLogin(e){
     e.preventDefault();
 
     try{
@@ -33,10 +33,21 @@ function Login(){
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           <Form onSubmit={handleLogin}>
-            
+            <Form.Group id='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type='email' ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id='password'>
+              <Form.Label>Password</Form.Label>
+              <Form.Control type='password' ref={passwordRef} required />
+            </Form.Group>
+            <Button disabled={loading} className='w-100' type='submit'> Log In</Button>
           </Form>
         </Card.Body>
       </Card>
+      <div className="w-100 text-center mt-2">
+        Need an Account? <Link to='/sign-up'>Sign Up</Link>
+      </div>
     </React.Fragment>
   )
 }
