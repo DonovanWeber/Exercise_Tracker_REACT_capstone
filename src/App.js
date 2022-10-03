@@ -8,6 +8,10 @@ import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
 import ExerciseDetail from './pages/ExerciseDetail';
 import Home from './pages/Home';
+import SignIn from './components/SignIn';
+
+
+
 
 function App() {
   return (
@@ -18,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/exercise/:id" element={<ExerciseDetail />} />
+          <Route path="/sign-in" element={<SignIn />} />
         </Routes>
         <Footer />
       </Box>
