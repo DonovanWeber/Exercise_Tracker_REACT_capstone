@@ -18,15 +18,24 @@ function Profile(){
     const userCollectionRef = collection(db, 'users');
     await addDoc(userCollectionRef, userData)
   }
+  async function handleAddNewUserToDoc(){
+    const userUid = currentUser.uid;
+    console.log(userUid);
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await setDoc(doc(db, 'users', userUid), {
+      email,
+      password,
+    });
+  }
   
   async function handleUserStats(e){
     e.preventDefault();
-    const id = currentUser.uid;
-    console.log(id);
+    // const id = currentUser.uid;
+    // console.log(id);
     if(currentUser !== null){
     try{
       handleAddNewUserDataToDoc({
-      id,
       name,
       age,
       height,
