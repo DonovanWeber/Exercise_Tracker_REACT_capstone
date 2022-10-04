@@ -7,7 +7,7 @@ function ListUserData(){
   const { currentUser } = useAuth();
   const [user, setUser] = useState({});
 
-  console.log(currentUser);
+  //console.log(currentUser);
 
   useEffect(() => {
     getUserData();
@@ -21,7 +21,7 @@ function ListUserData(){
           id: doc.id,
         }))
         setUser(user);
-        console.log("user data", user, user.data.age)
+        //console.log("user data", user, user.data.age)
       })
       .catch(error => console.log(error.message))
   }

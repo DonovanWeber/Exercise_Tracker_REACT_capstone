@@ -22,6 +22,7 @@ function SignUp(){
 
   async function handleAddNewUserToDoc(){
     const userUid = currentUser.uid;
+    console.log(userUid);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await setDoc(doc(db, 'users', userUid), {
@@ -41,8 +42,11 @@ function SignUp(){
       setError("");
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      navigate('/')
+      console.log(currentUser);
+      if(currentUser !== null){
       handleAddNewUserToDoc();
+      }
+      navigate('/')
     } catch {
       setError("Failed to create an account")
     }
