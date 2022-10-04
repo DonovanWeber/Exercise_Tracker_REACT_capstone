@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../firebase.config";
 import { doc, addDoc, collection, setDoc, Firestore } from 'firebase/firestore';
+import { v4 } from 'uuid';
 
 function Profile(){
   const { currentUser } = useAuth();
@@ -20,12 +21,10 @@ function Profile(){
   }
   async function handleAddNewUserToDoc(){
     const userUid = currentUser.uid;
+    const id = v4();
     console.log(userUid);
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
     await setDoc(doc(db, 'users', userUid), {
-      email,
-      password,
+      id
     });
   }
   
@@ -33,6 +32,7 @@ function Profile(){
     e.preventDefault();
     // const id = currentUser.uid;
     // console.log(id);
+    handleAddNewUserToDoc();
     if(currentUser !== null){
     try{
       handleAddNewUserDataToDoc({
