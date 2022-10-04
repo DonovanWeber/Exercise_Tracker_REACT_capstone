@@ -1,24 +1,34 @@
 
-// import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+
 import React, { useState, useRef } from "react";
 // import { auth } from "../firebase.config";
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import {Link, useNavigate} from 'react-router-dom';
 import { useAuth } from "../contexts/AuthContext";
+import { auth, db } from "../firebase.config";
+import { collection, setDoc, doc} from 'firebase/firestore';
+
 
 function SignUp(){
-  // const [signUpSuccess, setSignUpSuccess] = useState(null);
-  // const [signInSuccess, setSignInSuccess] = useState(null);
-  // const [signOutSuccess, setSignOutSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-
+  const { currentUser } = useAuth();
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const navigate = useNavigate()
   const { signup } = useAuth();
+
+  async function handleAddNewUserToDoc(){
+    const userUid = currentUser.uid;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await setDoc(doc(db, 'users', userUid), {
+      email,
+      password,
+    });
+  }
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -31,12 +41,11 @@ function SignUp(){
       setError("");
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      console.log("hit:", passwordRef.current.value)
       navigate('/')
+      handleAddNewUserToDoc();
     } catch {
       setError("Failed to create an account")
     }
-
     setLoading(false)
   }
 

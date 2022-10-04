@@ -12,6 +12,7 @@ function Login(){
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
 
   async function handleLogin(e){
     e.preventDefault();
@@ -20,6 +21,7 @@ function Login(){
       setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
+      
       navigate('/');
     } catch{
       setError("Failed to log in")

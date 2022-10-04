@@ -7,12 +7,13 @@ import { doc, addDoc, collection, setDoc, Firestore } from 'firebase/firestore';
 function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState();
+  // const [loading, setLoading] = useState();
 
   const [name, setName] = useState("");
-  // const [age, setAge] = useState(0);
-  // const [height, setHeight] = useState("");
-  // const [weight, setWeight] = useState(0);
+  const [age, setAge] = useState(0);
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState(0);
+
   const handleAddNewUserDataToDoc = async(userData) =>{
     const userCollectionRef = collection(db, 'users');
     await addDoc(userCollectionRef, userData)
@@ -21,14 +22,15 @@ function Profile(){
   async function handleUserStats(e){
     e.preventDefault();
     const id = currentUser.uid;
+    console.log(id);
     if(currentUser !== null){
     try{
       handleAddNewUserDataToDoc({
       id,
-      name: e.target.name.value,
-      // age,
-      // height,
-      // weight
+      name,
+      age,
+      height,
+      weight
       
     })} catch {
       console.log(name)
@@ -45,20 +47,20 @@ function Profile(){
           <Form onSubmit={handleUserStats}>
             <Form.Group id='name'>
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" />
+              <Form.Control type="text" onChange={(e)=> setName(e.target.value)}/>
             </Form.Group>
-            {/* <Form.Group id='age'>
+            <Form.Group id='age'>
               <Form.Label>Age</Form.Label>
-              <Form.Control type="number" min="0" />
+              <Form.Control type="number" min="0"  onChange={(e)=> setAge(e.target.value)}/>
             </Form.Group>
             <Form.Group id='height'>
               <Form.Label>Height</Form.Label>
-              <Form.Control type="text" />
+              <Form.Control type="text" onChange={(e)=> setHeight(e.target.value)} />
             </Form.Group>
             <Form.Group id='weight'>
               <Form.Label>weight</Form.Label>
-              <Form.Control type="number" min="0" />
-            </Form.Group> */}
+              <Form.Control type="number" min="0"  onChange={(e)=> setWeight(e.target.value)}/>
+            </Form.Group>
             <Button type='submit'>Add your stats</Button>
           </Form>
         </Card.Body>
