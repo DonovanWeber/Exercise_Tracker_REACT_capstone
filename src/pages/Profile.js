@@ -2,26 +2,32 @@ import { Card, Form, Button, Alert } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../firebase.config";
-import { doc, addDoc, Collection, setDoc } from 'firebase/firestore';
+import { doc, addDoc, collection, setDoc, Firestore } from 'firebase/firestore';
 
 function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState();
 
-
+  const [name, setName] = useState("");
+  // const [age, setAge] = useState(0);
+  // const [height, setHeight] = useState("");
+  // const [weight, setWeight] = useState(0);
+  
+  const userCollectionRef = collection(db, 'users')
+  
   async function handleUserStats(e){
     e.preventDefault();
     try{
-    await setDoc(doc(db, "users", currentUser), {
-      name: e.target.name.value,
-      age: e.target.age.value,
-      height: e.target.height.value,
-      weight: e.target.weight.value
+      addDoc(userCollectionRef, {
+      name,
+      // age,
+      // height,
+      // weight
       
     })} catch {
       setError(error);
-      console.log("Not adding to databse");
+      console.log("Not adding to database");
     }
   }
   return (
@@ -29,24 +35,24 @@ function Profile(){
       <h1> Welcome</h1>
       <Card>
         <Card.Body>
-          <Form>
+          <Form onSubmit={handleUserStats}>
             <Form.Group id='name'>
               <Form.Label>Name</Form.Label>
-              <Form.Control type="string" />
+              <Form.Control type="text" value={name} onChange={e => setName(e.target.value)}/>
             </Form.Group>
-            <Form.Group id='age'>
+            {/* <Form.Group id='age'>
               <Form.Label>Age</Form.Label>
               <Form.Control type="number" min="0" />
             </Form.Group>
             <Form.Group id='height'>
               <Form.Label>Height</Form.Label>
-              <Form.Control type="string" />
+              <Form.Control type="text" />
             </Form.Group>
             <Form.Group id='weight'>
               <Form.Label>weight</Form.Label>
               <Form.Control type="number" min="0" />
-            </Form.Group>
-            <Button type='submit' onClick={handleUserStats}>Add your stats</Button>
+            </Form.Group> */}
+            <Button type='submit'>Add your stats</Button>
           </Form>
         </Card.Body>
       </Card>
