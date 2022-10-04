@@ -14,6 +14,7 @@ import Login from './components/Login';
 import "bootstrap/dist/css/bootstrap.min.css";
 import PrivateRoutes from './components/PrivateRoutes';
 import Profile from './pages/Profile';
+import ListUserData from './components/ListUserData';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             {/* <Route path="/logout" element={<Logout />} /> */}
           </Routes>
+            <ListUserData />
           <Footer />
         </Box>
       </AuthProvider>

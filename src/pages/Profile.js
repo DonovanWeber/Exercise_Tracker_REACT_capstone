@@ -13,23 +13,30 @@ function Profile(){
   // const [age, setAge] = useState(0);
   // const [height, setHeight] = useState("");
   // const [weight, setWeight] = useState(0);
-  
-  const userCollectionRef = collection(db, 'users')
+  const handleAddNewUserDataToDoc = async(userData) =>{
+    const userCollectionRef = collection(db, 'users');
+    await addDoc(userCollectionRef, userData)
+  }
   
   async function handleUserStats(e){
     e.preventDefault();
+    const id = currentUser.uid;
+    if(currentUser !== null){
     try{
-      addDoc(userCollectionRef, {
-      name,
+      handleAddNewUserDataToDoc({
+      id,
+      name: e.target.name.value,
       // age,
       // height,
       // weight
       
     })} catch {
+      console.log(name)
       setError(error);
-      console.log("Not adding to database");
+      console.log("Not adding to database", error);
     }
   }
+}
   return (
     <React.Fragment>
       <h1> Welcome</h1>
@@ -38,7 +45,7 @@ function Profile(){
           <Form onSubmit={handleUserStats}>
             <Form.Group id='name'>
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" value={name} onChange={e => setName(e.target.value)}/>
+              <Form.Control type="text" />
             </Form.Group>
             {/* <Form.Group id='age'>
               <Form.Label>Age</Form.Label>
