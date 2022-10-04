@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
 import Logo from '../assets/images/logoTBA';
-
+// STILL NEEDS A LOGO !!! 
 const Navbar = () => {
   return (
     <Stack
@@ -25,6 +25,7 @@ const Navbar = () => {
         <a href="#exercises" style={
           {textDecoration: 'none', color:'#3A1212'}}>Exercises</a>
         <Link to='/sign-up' style={{textDecoration: 'none', color: "#3A1212"}}>Sign Up</Link>
+         <Link to='/login' style={{textDecoration: 'none', color: "#3A1212"}}>Log In</Link>
       </Stack>
     </Stack>
   )

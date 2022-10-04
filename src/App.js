@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import "bootstrap/dist/css/bootstrap.min.css";
+import PrivateRoutes from './components/PrivateRoutes';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -21,10 +23,14 @@ function App() {
           <Navbar /> 
           <Header />
           <Routes>
+            <Route element={<PrivateRoutes/>}>
+            </Route>
+              <Route path='/profile' element={<Profile />} />
             <Route path="/" element={<Home />} />
-            <Route path="/exercise/:id" element={<ExerciseDetail />} />
-            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/exercise/:id" element= {<ExerciseDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            {/* <Route path="/logout" element={<Logout />} /> */}
           </Routes>
           <Footer />
         </Box>

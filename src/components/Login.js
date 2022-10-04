@@ -8,7 +8,7 @@ function Login(){
 
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login } = useAuth();
+  const { login, logout } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -27,6 +27,21 @@ function Login(){
 
     setLoading(false)
     }
+
+  async function handleLogout(e){
+    e.preventDefault();
+
+    try{
+      setError("")
+      setLoading(true)
+      await logout();
+      navigate('/');
+      console.log("successfully logged out")
+    } catch {
+      setError("Failed to logout")
+    }
+    setLoading(false)
+  }
   return (
     <React.Fragment>
       <Card>
@@ -41,12 +56,15 @@ function Login(){
               <Form.Label>Password</Form.Label>
               <Form.Control type='password' ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className='w-100' type='submit'> Log In</Button>
+            <Button disabled={loading} className='w-100 mt-4' type='submit'> Log In</Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
         Need an Account? <Link to='/sign-up'>Sign Up</Link>
+      </div>
+      <div className="w-100 text-center mt-2">
+        <Button onClick={handleLogout}>Logout</Button>
       </div>
     </React.Fragment>
   )
