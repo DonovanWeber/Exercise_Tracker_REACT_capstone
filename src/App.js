@@ -33,7 +33,6 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             {/* <Route path="/logout" element={<Logout />} /> */}
           </Routes>
-            <ListUserData />
           <Footer />
         </Box>
       </AuthProvider>

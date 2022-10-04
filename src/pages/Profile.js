@@ -2,9 +2,9 @@ import { Card, Form, Button, Alert } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../firebase.config";
-import { doc, addDoc, collection, setDoc, Firestore } from 'firebase/firestore';
+import { doc, addDoc, collection, setDoc, updateDoc } from 'firebase/firestore';
 import { v4 } from 'uuid';
-
+import ListUserData from '../components/ListUserData';
 function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
@@ -16,8 +16,11 @@ function Profile(){
   const [weight, setWeight] = useState(0);
 
   const handleAddNewUserDataToDoc = async(userData) =>{
-    const userCollectionRef = collection(db, 'users');
-    await addDoc(userCollectionRef, userData)
+    const userRef = doc(db, 'users', currentUser.uid.toString());
+    await updateDoc(userRef, userData);
+    
+    // const userCollectionRef = collection(db, 'users');
+    // await addDoc(userCollectionRef, userData)
   }
   async function handleAddNewUserToDoc(){
     const userUid = currentUser.uid;
@@ -74,6 +77,7 @@ function Profile(){
           </Form>
         </Card.Body>
       </Card>
+      <ListUserData />
     </React.Fragment>
   )
 }
