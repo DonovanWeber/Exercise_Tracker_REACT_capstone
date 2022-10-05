@@ -13,9 +13,12 @@ function ListUserData({userData}){
     const [error, setError] = useState("");
     console.log("userDataInsideOfList: ", userData);
     const [userCollectedData, setUserCollectedData] = useState();
+    setUserCollectedData(userData);
+    
     useEffect(() => {
       if(userData !== null){
       setUserCollectedData(userData);
+      console.log("userData inside useEfffect",userData )
       setError("successful data transfer")
       } else {
         setError("no data!")
@@ -58,7 +61,7 @@ function ListUserData({userData}){
   return (
     <div>
       <h1>List User Data</h1>
-      {/* {userData 
+      {userData 
       ?
       <ul>
         <li>{userData.name}</li>
@@ -67,7 +70,7 @@ function ListUserData({userData}){
         <li>{userData.weight}</li>
       </ul>
       : {error}
-      } */}
+      }
     </div>
   )
 }
