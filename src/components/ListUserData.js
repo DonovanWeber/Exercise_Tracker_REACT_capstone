@@ -23,6 +23,7 @@ function ListUserData(){
 
     if(docSnap.exists()) {
       const userData = docSnap.data();
+      console.log("userData: ", userData)
       const userDataObject = Object.values(userData)
       //setUser(userData);
       return userData
