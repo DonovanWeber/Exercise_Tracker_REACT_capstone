@@ -9,7 +9,7 @@ import { useFirestoreDocument } from '@react-query-firebase/firestore';
 
 function ListUserData(){
     const { currentUser } = useAuth();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const [error, setError] = useState("");
     
     // const ref = doc(db, 'users', currentUser.uid);
@@ -24,7 +24,8 @@ function ListUserData(){
     if(docSnap.exists()) {
       const userData = docSnap.data();
       console.log("userData: ", userData)
-      const userDataObject = Object.values(userData)
+      //const userDataObject = Object.values(userData)
+      setUser(userData);
       //setUser(userData);
       return userData
      // console.log("Document Data: ", docSnap.data());
@@ -49,7 +50,7 @@ function ListUserData(){
 
     useEffect(() => {
       retrieveUserData();
-    }, [])
+    })
   
   //function getUserData(){
 
@@ -76,7 +77,16 @@ function ListUserData(){
   return (
     <div>
       <h1>List User Data</h1>
-      <li>{}</li>
+      {Object.keys(user).map((key, index) =>{
+        return (
+          <ul>
+            <li>
+              {key}: {user[key]};
+            </li>
+          </ul>
+        )
+      })}
+      <li></li>
     </div>
   )
 }
