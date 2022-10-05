@@ -5,88 +5,47 @@ import { useAuth } from '../contexts/AuthContext'
 import { useFirestoreDocument } from '@react-query-firebase/firestore';
 
 
-//console.log(currentUser);
 
-function ListUserData(){
+
+function ListUserData({userData}){
     const { currentUser } = useAuth();
-    const [user, setUser] = useState(null);
+    //const [user, setUser] = useState(null);
     const [error, setError] = useState("");
     
-    // const ref = doc(db, 'users', currentUser.uid);
-    // console.log("ref: ", ref);
-    // const userDocSnapshot = useFirestoreDocument(['users', currentUser.uid], ref);
-    //console.log("data: ", userDocSnapshot.data());
-    const retrieveUserData =  async () => {
-    const userDocRef = doc(db, 'users', currentUser.uid);
-    //userDocSnapshot.data._key.path.segments[1]
-    const docSnap = await getDoc(userDocRef);
-
-    if(docSnap.exists()) {
-      const userData = docSnap.data();
-      console.log("userData: ", userData)
-      //const userDataObject = Object.values(userData)
-      setUser(userData);
-      //setUser(userData);
-      return userData
-     // console.log("Document Data: ", docSnap.data());
-    } else {
-      console.log("No such document!");
-      setError("No such document!")
-    }
-  }
-  // function userDataObject() {
-  //   Object.values(retrieveUserData).map((value, index) => {
-  //     const dataObject = {
-  //       name: value.name,
-  //       age: value.age,
-  //       height: value.height,
-  //       weight: value.weight
+  //   useEffect(() => {
+  //     if(currentUser !== null){
+  //     const userData = retrieveUserData();
+  //     setUser(userData);
   //     }
-  //     setUser(dataObject)
-  //     return dataObject;
-  //   })
+  //   },[currentUser])
+
+  //   const retrieveUserData =  async () => {
+  //   const userDocRef = doc(db, 'users', currentUser.uid);
+  //   const docSnap = await getDoc(userDocRef);
+
+  //   if(docSnap.exists()) {
+  //     const userData = docSnap.data();
+  //     console.log("userData: ", userData)
+  //     setUser(userData);
+      
+  //     return userData
+  //   } else {
+  //     console.log("No such document!");
+  //     setError("No such document!")
+  //   }
   // }
-  console.log(user);
 
-    useEffect(() => {
-      retrieveUserData();
-    })
-  
-  //function getUserData(){
-
-    //try {
-    //setError("");
-    //console.log("retrieved user data: ", user);
-    // } catch {
-    //   setError("Did not retrieve data")
-  //}
-    // const userCollectionRef = collection(db, 'users');
     
-    
-    // getDocs(userCollectionRef)
-    //   .then(response => {
-    
-    //     const user = response.docs.filter(user => (user.data.id === currentUser.uid))
-    //     console.log("listedUserData: ",user);
-    //     setUser(user);
-       
-    //   })
-    //   .catch(error => console.log(error.message))
-  
 
   return (
     <div>
       <h1>List User Data</h1>
-      {Object.keys(user).map((key, index) =>{
-        return (
-          <ul>
-            <li>
-              {key}: {user[key]};
-            </li>
-          </ul>
-        )
-      })}
-      <li></li>
+      <ul>
+        <li>{userData.name}</li>
+        <li>{userData.age}</li>
+        <li>{userData.height}</li>
+        <li>{userData.weight}</li>
+      </ul>
     </div>
   )
 }

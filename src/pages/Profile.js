@@ -1,23 +1,41 @@
 import { Card, Form, Button, Alert } from 'react-bootstrap'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { db } from "../firebase.config";
-import { doc, addDoc, collection, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, addDoc, collection, setDoc, updateDoc } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import ListUserData from '../components/ListUserData';
-import { QueryClient, QueryClientProvider} from 'react-query';
+
+import { Link } from 'react-router-dom';
+
 
 function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   // const [loading, setLoading] = useState();
-  const queryClient = new QueryClient();
-  
+  const [userData, setUserData] = useState();
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState(0);
 
+  
+  const retrieveUserData =  async () => {
+    const userDocRef = doc(db, 'users', currentUser.uid);
+    const docSnap = await getDoc(userDocRef);
+    
+    if(docSnap.exists()) {
+      const userDataSnap = docSnap.data();
+      console.log("userData: ", userDataSnap)
+      setUserData(userDataSnap);
+      
+      return userDataSnap
+    } else {
+      console.log("No such document!");
+      setError("No such document!")
+    }
+  }
+  
   const handleAddNewUserDataToDoc = async(userData) =>{
     const userRef = doc(db, 'users', currentUser.uid.toString());
     await updateDoc(userRef, userData);
@@ -34,6 +52,14 @@ function Profile(){
     });
   }
   
+  useEffect(() => {
+      if(currentUser !== null){
+      const userData = retrieveUserData();
+      setUserData(userData);
+    }
+
+  },[currentUser])
+
   async function handleUserStats(e){
     e.preventDefault();
     // const id = currentUser.uid;
@@ -80,9 +106,8 @@ function Profile(){
           </Form>
         </Card.Body>
       </Card>
-      <QueryClientProvider client={queryClient}>
-        <ListUserData />
-      </QueryClientProvider>
+        <ListUserData userData={userData} />
+        <Link to='/results' style={{textDecoration: 'none', color: "#3A1212"}}>Results</Link>
     </React.Fragment>
   )
 }//QueryCLient probably not needed
