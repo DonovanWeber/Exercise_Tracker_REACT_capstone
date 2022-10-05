@@ -52,36 +52,43 @@ function Profile(){
     });
   }
   
-  useEffect(() => {
-      if(currentUser !== null){
-      const userData = retrieveUserData();
-      setUserData(userData);
-    }
-
-  },[currentUser])
-
+  
   async function handleUserStats(e){
     e.preventDefault();
     // const id = currentUser.uid;
     // console.log(id);
     handleAddNewUserToDoc();
+
     if(currentUser !== null){
-    try{
-      handleAddNewUserDataToDoc({
-      name,
-      age,
-      height,
-      weight
-      
-    })} catch {
-      console.log(name)
-      setError(error);
-      console.log("Not adding to database", error);
+      try{
+        handleAddNewUserDataToDoc({
+          name,
+          age,
+          height,
+          weight
+          
+        })} catch {
+          console.log(name)
+          setError(error);
+          console.log("Not adding to database", error);
+        }
+      }
+      if(currentUser !== null){
+        const userData = retrieveUserData();
+        setUserData(userData);
+      }
     }
-  }
-}
-  return (
-    <React.Fragment>
+
+    // useEffect(() => {
+    //     if(currentUser !== null){
+    //     const userData = retrieveUserData();
+    //     setUserData(userData);
+    //   }
+  
+    // },[userData])
+
+    return (
+      <React.Fragment>
       <h1> Welcome</h1>
       <Card>
         <Card.Body>
@@ -106,10 +113,10 @@ function Profile(){
           </Form>
         </Card.Body>
       </Card>
-        <ListUserData userData={userData} />
-        <Link to='/results' style={{textDecoration: 'none', color: "#3A1212"}}>Results</Link>
+      <ListUserData userData={userData} />
+      <Link to='/results' style={{textDecoration: 'none', color: "#3A1212"}}>Results</Link>
     </React.Fragment>
   )
-}//QueryCLient probably not needed
+}
 
 export default Profile

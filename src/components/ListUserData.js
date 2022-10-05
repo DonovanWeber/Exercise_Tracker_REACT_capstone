@@ -11,7 +11,18 @@ function ListUserData({userData}){
     const { currentUser } = useAuth();
     //const [user, setUser] = useState(null);
     const [error, setError] = useState("");
-    
+    console.log("userDataInsideOfList: ", userData);
+    const [userCollectedData, setUserCollectedData] = useState();
+  
+    setUserCollectedData(userData);
+
+  // try {
+  //     if(userData !== null){
+  //     setError("userData exists but not right operation");
+  //     }
+  //   } catch {
+  //     setError("no data passed")
+  //   }
   //   useEffect(() => {
   //     if(currentUser !== null){
   //     const userData = retrieveUserData();
@@ -40,12 +51,16 @@ function ListUserData({userData}){
   return (
     <div>
       <h1>List User Data</h1>
+      {/* {userData 
+      ?
       <ul>
         <li>{userData.name}</li>
         <li>{userData.age}</li>
         <li>{userData.height}</li>
         <li>{userData.weight}</li>
       </ul>
+      : {error}
+      } */}
     </div>
   )
 }
