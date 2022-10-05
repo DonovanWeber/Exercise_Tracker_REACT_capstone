@@ -5,6 +5,8 @@ import { db } from "../firebase.config";
 import { doc, addDoc, collection, setDoc, updateDoc } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import ListUserData from '../components/ListUserData';
+import { QueryClient, QueryClientProvider} from 'react-query';
+
 function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
@@ -77,7 +79,9 @@ function Profile(){
           </Form>
         </Card.Body>
       </Card>
-      <ListUserData />
+      <QueryClientProvider client={QueryClient}>
+        <ListUserData />
+      </QueryClientProvider>
     </React.Fragment>
   )
 }
