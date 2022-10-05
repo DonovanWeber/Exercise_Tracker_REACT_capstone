@@ -23,11 +23,13 @@ function ListUserData(){
 
     if(docSnap.exists()) {
       const userData = docSnap.data();
-      setUser(userData);
+      const userDataObject = Object.values(userData)
+      //setUser(userData);
       return userData
      // console.log("Document Data: ", docSnap.data());
     } else {
       console.log("No such document!");
+      setError("No such document!")
     }
   }
   // function userDataObject() {
@@ -73,7 +75,7 @@ function ListUserData(){
   return (
     <div>
       <h1>List User Data</h1>
-      <li>{user}</li>
+      <li>{}</li>
     </div>
   )
 }
