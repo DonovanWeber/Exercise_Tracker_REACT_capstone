@@ -11,7 +11,8 @@ function Profile(){
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
   // const [loading, setLoading] = useState();
-
+  const queryClient = new QueryClient();
+  
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [height, setHeight] = useState("");
@@ -79,11 +80,11 @@ function Profile(){
           </Form>
         </Card.Body>
       </Card>
-      <QueryClientProvider client={QueryClient}>
+      <QueryClientProvider client={queryClient}>
         <ListUserData />
       </QueryClientProvider>
     </React.Fragment>
   )
-}
+}//QueryCLient probably not needed
 
 export default Profile

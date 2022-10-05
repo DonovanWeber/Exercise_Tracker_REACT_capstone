@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import { collection, getDocs, query, where, doc} from 'firebase/firestore'
+import { collection, getDocs, getDoc, query, where, doc} from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { useAuth } from '../contexts/AuthContext'
 import { useFirestoreDocument } from '@react-query-firebase/firestore';
@@ -12,23 +12,50 @@ function ListUserData(){
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
     
-    const ref = doc(db, 'users', currentUser.uid);
-    console.log("ref: ", ref);
-    const userDocSnapshot = useFirestoreDocument(['users', currentUser.uid], ref);
-    
+    // const ref = doc(db, 'users', currentUser.uid);
+    // console.log("ref: ", ref);
+    // const userDocSnapshot = useFirestoreDocument(['users', currentUser.uid], ref);
+    //console.log("data: ", userDocSnapshot.data());
+    const retrieveUserData =  async () => {
+    const userDocRef = doc(db, 'users', currentUser.uid);
+    //userDocSnapshot.data._key.path.segments[1]
+    const docSnap = await getDoc(userDocRef);
+
+    if(docSnap.exists()) {
+      const userData = docSnap.data();
+      setUser(userData);
+      return userData
+     // console.log("Document Data: ", docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
+  }
+  // function userDataObject() {
+  //   Object.values(retrieveUserData).map((value, index) => {
+  //     const dataObject = {
+  //       name: value.name,
+  //       age: value.age,
+  //       height: value.height,
+  //       weight: value.weight
+  //     }
+  //     setUser(dataObject)
+  //     return dataObject;
+  //   })
+  // }
+  console.log(user);
+
     useEffect(() => {
-      getUserData();
+      retrieveUserData();
     }, [])
   
-  function getUserData(){
+  //function getUserData(){
 
     //try {
-    setError("");
-    console.log("retrieved user data: ", userDocSnapshot);
+    //setError("");
+    //console.log("retrieved user data: ", user);
     // } catch {
     //   setError("Did not retrieve data")
-    // }
-  }
+  //}
     // const userCollectionRef = collection(db, 'users');
     
     
@@ -46,7 +73,7 @@ function ListUserData(){
   return (
     <div>
       <h1>List User Data</h1>
-      <li key={user.id}>1</li>
+      <li>{user}</li>
     </div>
   )
 }
