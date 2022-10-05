@@ -13,8 +13,15 @@ function ListUserData({userData}){
     const [error, setError] = useState("");
     console.log("userDataInsideOfList: ", userData);
     const [userCollectedData, setUserCollectedData] = useState();
-  
-    setUserCollectedData(userData);
+    useEffect(() => {
+      if(userData !== null){
+      setUserCollectedData(userData);
+      setError("successful data transfer")
+      } else {
+        setError("no data!")
+
+      }
+    }, [])
 
   // try {
   //     if(userData !== null){
