@@ -1,8 +1,7 @@
-// import logo from './logo.svg';
+// import Logo from './logo.png';
 import './App.css';
 import React from 'react';
 import { Box } from '@mui/material';
-import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
@@ -22,17 +21,15 @@ function App() {
       <AuthProvider>
         <Box width="400px"  sx={{width: { x1: '1448px'}}} m="auto">
           <Navbar /> 
-          <Header />
           <Routes>
             <Route element={<PrivateRoutes/>}>
-            </Route>
               <Route path='/profile' element={<Profile />} />
-            <Route path="/results" element={<ListUserData />} />
+              <Route path="/results" element={<ListUserData />} />
+            </Route>
             <Route path="/" element={<Home />} />
             <Route path="/exercise/:id" element= {<ExerciseDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
-            {/* <Route path="/logout" element={<Logout />} /> */}
           </Routes>
           <Footer />
         </Box>

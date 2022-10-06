@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
-import Logo from '../assets/images/logoTBA';
+import Logo from '../assets/images/logo.png';
 // STILL NEEDS A LOGO !!! 
 const Navbar = () => {
   return (
@@ -13,7 +13,7 @@ const Navbar = () => {
     >
       <Link to="/">
         <img src={Logo} alt="Logo" style={{
-          width:'48px', height:'48px', margin:'0 20px'}} />
+          width:'110px', height:'80px', margin:'0 20px'}} />
       </Link> 
       <Stack
         direction="row"

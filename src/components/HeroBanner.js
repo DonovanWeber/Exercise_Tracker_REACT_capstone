@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Typography, Button } from "@mui/material";
-// import HeroBannerImage from '../assets/images/HeroBannerImage';
+import HeroBannerImage from '../assets/images/herobanner.webp';
 
 const HeroBanner = () => {
   return (
@@ -50,7 +50,12 @@ const HeroBanner = () => {
         
         Exercise
       </Typography>
-      {/* <img src={HeroBannerImage} alt='banner' className="hero-banner-img" /> */}
+      <img style={{
+        position: 'relative',
+        top: "0px",
+        left: "0px"
+      }}
+      width="500px" height="500px"src={HeroBannerImage} alt='banner' className="hero-banner-img" />
     </Box>
   )
 }

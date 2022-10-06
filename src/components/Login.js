@@ -38,7 +38,8 @@ function Login(){
       setLoading(true)
       await logout();
       navigate('/');
-      console.log("successfully logged out")
+      
+      setError("successfully logged out")
     } catch {
       setError("Failed to logout")
     }
@@ -67,6 +68,7 @@ function Login(){
       </div>
       <div className="w-100 text-center mt-2">
         <Button onClick={handleLogout}>Logout</Button>
+        {error && <Alert variant='danger'>{error}</Alert>}
       </div>
     </React.Fragment>
   )

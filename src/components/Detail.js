@@ -1,11 +1,9 @@
 import React from 'react'
 import { Typography, Stack, Button } from '@mui/material';
-// import BodyPartImage from '..assets/icons/body-part.png';
-// import TargetImage from '..assets/icons/target.png';
-// import EquipmentImage from '..assets/icons/equipment.png';
-const BodyPartImage = 'image soon ';
-const TargetImage = 'image soon '
-const EquipmentImage = 'image soon '
+import BodyPartImage from '../assets/icons/body-part.png';
+import TargetImage from '../assets/icons/target.png';
+import EquipmentImage from '../assets/icons/equipment.png';
+
 // Add Images for each commented out line above 
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment} = exerciseDetail;
@@ -36,7 +34,7 @@ const Detail = ({ exerciseDetail }) => {
         </Typography>
         <Typography variant='h5'>
           Exercises keep you strong.
-          {name} {' '} will target your {target}. It will help you improve your mood and gain energy.
+          {' '}{name} {' '} will target your {target}. It will help you improve your mood and gain energy.
         </Typography>
         {extraDetail.map((item) => (
           <Stack key={item.name} direction='row' gap='24px' alignItems='center'>
